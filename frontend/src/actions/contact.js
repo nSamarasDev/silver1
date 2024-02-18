@@ -72,9 +72,10 @@ export const getContactById = (_id) => async (dispatch) => {
   }
 };
 
+
 // Create or update contact
 export const createContact =
-  (formData, history, edit = false) =>
+  (formData, navigate, edit = false) =>
   async (dispatch) => {
     try {
       const config = {
@@ -84,7 +85,7 @@ export const createContact =
       };
 
       const res = await axios.post("/api/contact", formData, config);
-
+      console.log("Response:", res);
       dispatch({
         type: GET_CONTACT,
         payload: res.data,
@@ -95,9 +96,10 @@ export const createContact =
       );
 
       if (!edit) {
-        history.push("/contact");
+        navigate("/contact");
       }
     } catch (error) {
+      console.error("Error in createContact action:", error); // Moved here to ensure error is defined
       const errors = error.response.data.errors;
 
       if (errors) {
@@ -113,6 +115,7 @@ export const createContact =
       });
     }
   };
+
 
 // Get profile by id
 export const getProfileById = (userId) => async (dispatch) => {

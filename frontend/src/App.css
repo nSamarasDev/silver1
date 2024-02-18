@@ -1,11 +1,11 @@
 /* Global Styles */
 :root {
-  --primary-color: #00c3ff;
-  --dark-color: #343a40;
-  --light-color: #f4f4f4;
+  --primary-color: #4F5D75;
+  --dark-color: #1C2321;
+  --light-color: #A9B4C2;
   --danger-color: #dc3545;
   --success-color: #28a745;
-  --hover-color: #129dee;
+  --hover-color: #8EA8C3;
 }
 
 * {
@@ -43,9 +43,12 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  /* margin-top: 0rem; */
+  margin-left: 3rem;
   margin-bottom: 3rem;
+  padding-top: 2rem;
 }
+
 
 .container2 {
   max-width: 1100px;
@@ -294,7 +297,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
   left: 0;
@@ -366,6 +369,7 @@ button {
   background: var(--light-color);
 }
 
+/* ////////////////////////////////////////////////////////////////////// */
 /* Navbar */
 .navbar {
   display: flex;
@@ -377,7 +381,7 @@ button {
   z-index: 1;
   height: 100%; /* Height of the tray */
   width: 60px; /* Initial width for full-screen mode */
-  background-color: #333; /* Adjusted background color */
+  background-color: --dark-color; /* Adjusted background color */
   transition: width 0.3s ease; /* Smooth transition for width change */
 }
 
@@ -387,6 +391,7 @@ button {
 
 .navbar.open {
   width: 250px; /* Width when open */
+  background-color: rgba(51, 51, 51, 0.9); /* Make the navbar semi-transparent when open */
 }
 
 .navbar ul {
@@ -416,6 +421,7 @@ button {
   background: #444;
   color: #8aaef7;
 }
+
 
 /* Close icon */
 .close-icon {
@@ -613,8 +619,9 @@ button {
     margin: auto;
     overflow: hidden;
     padding: 0 1rem;
-    padding-top: 10px;
-    margin-top: 2rem;
+    padding-top: 20px;
+    margin-top: 0rem;
+    margin-left: 3rem;
     margin-bottom: 1rem;
   }
 
@@ -777,7 +784,7 @@ button {
   z-index: 1;
   height: 100%; /* Height of the tray */
   width: 60px; /* Initial width for full-screen mode */
-  background-color: #333; /* Adjusted background color */
+  background-color: --dark-color; /* Adjusted background color */
   transition: width 0.3s ease; /* Smooth transition for width change */
 }
 
@@ -787,6 +794,7 @@ button {
 
 .navbar.open {
   width: 250px; /* Width when open */
+  background-color: rgba(51, 51, 51, 0.9 ); /* Make the navbar semi-transparent when open */
 }
 
 .navbar ul {

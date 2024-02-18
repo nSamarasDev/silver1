@@ -12,6 +12,7 @@ export default function profileReducer(state = initialState, action) {
 
   switch (type) {
     case GET_CONTACT:
+      console.log("GET_CONTACT payload:", payload);
       return {
         ...state,
         contact: payload,
