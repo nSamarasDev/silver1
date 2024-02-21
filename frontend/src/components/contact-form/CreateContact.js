@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -28,7 +28,7 @@ const CreateContact = ({ createContact }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await createContact(formData, navigate); // Wait for createContact action to complete
-    navigate("/"); // Navigate after the action is completed
+    setTimeout(() => navigate("/"), 3000); // Wait for 3 seconds before navigating
   };
 
   return (

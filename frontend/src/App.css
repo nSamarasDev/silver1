@@ -43,11 +43,12 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  /* margin-top: 0rem; */
-  margin-left: 3rem;
   margin-bottom: 3rem;
   padding-top: 2rem;
+  padding-left: 6rem;
 }
+
+
 
 
 .container2 {
@@ -316,6 +317,7 @@ img {
   color: #352727;
 }
 
+/* Add box-shadow to form elements */
 .form input[type='text'],
 .form input[type='email'],
 .form input[type='password'],
@@ -324,10 +326,26 @@ img {
 .form textarea {
   display: block;
   width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Include box-shadow in transition for smooth effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle box-shadow */
 }
+
+/* Hover effect for input fields */
+.form input[type='text']:hover,
+.form input[type='email']:hover,
+.form input[type='password']:hover,
+.form input[type='date']:hover,
+.form select:hover,
+.form textarea:hover {
+  border-color: #999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow size on hover for emphasis */
+}
+
 
 .form input[type='submit'],
 button {
@@ -610,7 +628,7 @@ button {
   body {
     font-size: 0.8rem;
     line-height: 1.5;
-    background-color: #757682;
+    background-color: --primary-color;
     color: #333;
   }
 
@@ -643,6 +661,18 @@ button {
     padding-top: 5px;
     margin-top: 10px;
     margin-bottom: 1rem;
+  }
+
+  .landing-inner {
+    color: #fff;
+    height: 100%;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   /* Utilities */

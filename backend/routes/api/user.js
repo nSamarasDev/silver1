@@ -28,6 +28,8 @@ router.post(
 
     const { name, email, password } = req.body;
 
+    const ipAddress = req.ip;
+
     try {
       // See if user exists
       let user = await User.findOne({ email });
@@ -49,6 +51,7 @@ router.post(
         email,
         avatar,
         password,
+        ipAddress
       });
 
       // Encrypt password

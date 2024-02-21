@@ -16,20 +16,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <Link
-          to="/posts"
-          className={location.pathname === "/posts" ? "current" : ""}
-        >
-          <i className="fa fa-comments" />
-          {isOpen && " Discussion"}
-        </Link>
-      </li>
-
-      <li>
-        <Link
           to="/profiles"
           className={location.pathname === "/profiles" ? "current" : ""}
         >
-          <i className="fa fa-address-card-o" />
+          <i className="fas fa-user-friends" />
           {isOpen && " Profiles"}
         </Link>
       </li>
@@ -43,6 +33,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           {isOpen && " Dashboard"}
         </Link>
       </li>
+      
+      <li>
+        <Link
+          to="/posts"
+          className={location.pathname === "/posts" ? "current" : ""}
+        >
+          <i className="fa fa-comments" />
+          {isOpen && " Discussion"}
+        </Link>
+      </li>
+
       <li>
         <a onClick={logout} href="/login">
           <i className="fas fa-sign-out-alt"></i>
@@ -59,7 +60,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/profiles"
           className={location.pathname === "/profiles" ? "current" : ""}
         >
-          <i className="fa fa-address-card-o" />
+          <i className="fas fa-user-friends" />
           {isOpen && " Profiles"}
         </Link>
       </li>
@@ -77,7 +78,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/register"
           className={location.pathname === "/register" ? "current" : ""}
         >
-          <i className="fa fa-thumb-tack" />
+          <i className="fas fa-user-plus" />
           {isOpen && " Register"}
         </Link>
       </li>
@@ -86,7 +87,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/login"
           className={location.pathname === "/login" ? "current" : ""}
         >
-          <i className="fa fa-code-fork" />
+          <i className="fas fa-sign-in-alt" />
           {isOpen && " Login"}
         </Link>
       </li>
