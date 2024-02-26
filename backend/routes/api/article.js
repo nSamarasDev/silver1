@@ -71,7 +71,7 @@ router.post(
   );
 
   // @route    PUT api/articles/:id
-// @desc     Update an article
+// @desc     Update an existing article
 // @access   Private
 router.put(
   "/:id",
@@ -296,7 +296,7 @@ router.post(
 );
 
 // @route    DELETE api/article/comment/:id/:comment_id
-// @desc     Delete a comment on a post.
+// @desc     Delete a comment on an article.
 // @desc     Delete by post id then comment id.
 // @access   Private
 router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
