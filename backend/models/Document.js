@@ -10,10 +10,6 @@ const documentSchema = new Schema({
         type: String,
         required: true,
     },
-    contentType: {
-        type: String,
-        required: true,
-    },
     size: {
         type: Number,
         required: true,

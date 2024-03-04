@@ -25,6 +25,7 @@ app.use('/api/contact', require('./routes/api/contact'));
 app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/posts", require("./routes/api/post"));
 app.use("/api/articles", require("./routes/api/article"));
+app.use("/api/uploads", require("./routes/api/upload"));
 
 const PORT = process.env.PORT || 6666;
 

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const slugify = require("slugify")
 
 const PostSchema = new Schema({
   user: {
@@ -15,6 +16,7 @@ const PostSchema = new Schema({
   avatar: {
     type: String,
   },
+  slug: String,
   likes: [
     {
       user: {
@@ -48,5 +50,12 @@ const PostSchema = new Schema({
     default: Date.now,
   },
 });
+
+// Create bootcamp slug from the name
+PostSchema.pre('save', function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
+
 
 module.exports = mongoose.model("post", PostSchema);
