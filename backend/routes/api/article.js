@@ -70,7 +70,7 @@ router.post(
     }
   );
 
-  // @route    PUT api/articles/:id
+// @route    PUT api/articles/:id
 // @desc     Update an existing article
 // @access   Private
 router.put(
@@ -133,7 +133,7 @@ router.get("/", auth, async (req, res) => {
 
 // @route    GET api/articles/:userId/user-articles
 // @desc     Get articles created by a specific user
-// @access   Private
+// @access   Public
 router.get("/:user_id/user-articles", auth, async (req, res) => {
   try {
     const articles = await Article.find({ user: req.params.user_id });
