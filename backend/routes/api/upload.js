@@ -29,14 +29,20 @@ const upload = multer({
   storage: storage,
 });
 
-// POST route to handle file upload
+// @route  POST api/uploads/me
+// @desc   Create a new document 
+//@access  Private
 router.post('/', auth, upload.single('file'), async (req, res) => {
   try {
+
+    const user = await User.findById(req.user.id).select("-password");
+    console.log
     // Extract file information from request
     const { filename, path: filePath, size } = req.file;
 
     // Create new document instance
     const newDocument = new Document({
+      user,  
       filename,
       path: filePath,
       size,
@@ -53,5 +59,29 @@ router.post('/', auth, upload.single('file'), async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// @route  GET api/uploads/me
+// @desc   Get all of the logged in users documents
+//@access  Private
+router.get("/me", auth, async (req, res) => {
+
+    try {
+      const document = await Document.find({ user: req.user.id }).populate(
+        "user",
+        ["name", "avatar"]
+      );
+      console.log(req.user.id)
+  
+      if (!document) {
+        return res.status(400).json({ msg: "There are no documents for this user" });
+      }
+  
+  
+      res.json(document);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Server Error");
+    }
+  });
 
 module.exports = router;
