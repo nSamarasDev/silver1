@@ -13,15 +13,17 @@ const checkObjectId = require('../../middleware/checkObjectId');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const userId = req.user.id;
-    const userFolderPath = path.join(__dirname, '..', '..', 'uploads', userId);
-    if (!fs.existsSync(userFolderPath)) {
-      fs.mkdirSync(userFolderPath);
+    const userDocumentsFolderPath = path.join(__dirname, '..', '..', 'uploads', 'documents', userId);
+    try {
+      fs.mkdirSync(userDocumentsFolderPath, { recursive: true });
+      cb(null, userDocumentsFolderPath);
+    } catch (err) {
+      console.error('Error creating directory:', err);
+      cb(err);
     }
-    cb(null, userFolderPath);
   },
   filename: function (req, file, cb) {
-    // cb(null, uuidv4() + path.extname(file.originalname));
-    cb(null, file.originalname)
+    cb(null, file.originalname);
   },
 });
 
@@ -37,7 +39,7 @@ router.post('/', auth, upload.single('file'), async (req, res) => {
   try {
 
     const user = await User.findById(req.user.id).select("-password");
-    console.log
+    console.log(req.file)
     // Extract file information from request
     const { filename, path: filePath, size } = req.file;
 
